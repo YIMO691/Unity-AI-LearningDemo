@@ -1,0 +1,70 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+
+# Secrets / local settings
+.env
+.env.*
+!.env.example
+CLAUDE.local.md
+.claude/settings.local.json
+
+# Unity generated directories
+UnityProject/[Ll]ibrary/
+UnityProject/[Tt]emp/
+UnityProject/[Oo]bj/
+UnityProject/[Bb]uild/
+UnityProject/[Bb]uilds/
+UnityProject/[Ll]ogs/
+UnityProject/[Uu]ser[Ss]ettings/
+UnityProject/[Mm]emoryCaptures/
+UnityProject/[Rr]ecordings/
+UnityProject/[Ss]ysinfo.txt
+
+# Unity generated files
+UnityProject/*.csproj
+UnityProject/*.sln
+UnityProject/*.sln.DotSettings.user
+UnityProject/*.unityproj
+UnityProject/*.pidb
+UnityProject/*.svd
+UnityProject/*.pdb
+UnityProject/*.mdb
+UnityProject/*.opendb
+UnityProject/*.VC.db
+
+# Unity cache / crash data
+UnityProject/[Cc]rash[Rr]eports/
+UnityProject/[Pp]rofiling/
+
+# ML-Agents / training outputs
+UnityProject/results/
+UnityProject/summaries/
+UnityProject/runs/
+UnityProject/checkpoints/
+*.onnx.tmp
+
+# Python / notebooks used during ML work
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Large generated artifacts, commit intentionally with Git LFS if needed
+*.mp4
+*.mov
+*.avi
+*.zip
+*.7z
+*.rar
+
