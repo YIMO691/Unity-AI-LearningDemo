@@ -9,6 +9,8 @@
 - Git 邮箱：已配置。
 - Claude Code：已安装，版本输出为 `2.1.128 (Claude Code)`。
 - Node.js：已安装，版本 `v25.8.1`。
+- npm：可通过 `npm.cmd` 使用，版本 `11.11.1`。
+- WinGet：已安装，版本 `v1.28.240`。
 - 原始手册：已从 `F:\EdgeDownload\deep-research-report (4).md` 归档到 `docs/manual.md`。
 
 ## 需要处理
@@ -20,4 +22,3 @@
 ## 不需要处理
 
 - DeepSeek CLI：本项目不依赖 DeepSeek CLI。使用 DeepSeek API Key 配合 Claude Code 环境变量即可。
-
