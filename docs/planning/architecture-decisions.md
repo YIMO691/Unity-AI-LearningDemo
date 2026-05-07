@@ -27,15 +27,22 @@
 ## ADR-002: 行为树选型 — Unity Behavior (官方包)
 
 **决策日期:** 2026-05-06
-**状态:** 已确定
+**状态:** 已更新（2026-05-07）
 
-M2 阶段使用 **Unity Behavior**（Unity 6 内置行为图包），不使用第三方行为树库。
+M2 阶段原计划使用 **Unity Behavior**（Unity 6 内置行为图包）。经过实际评估后，改为使用 **C# 代码行为树**（BTSelector/BTSequence/BTCondition/BTAction）。
 
-**理由:**
-- Unity 6 原生集成，可视化编辑器，无需额外学习外部工具。
-- 支持非线性分支和可观察节点，功能上比传统行为树更现代。
-- 作为学习项目，优先使用官方方案以降低维护成本。
-- 如果 Unity Behavior 存在功能缺陷，备选方案为 Behavior Designer（Asset Store），但仅在必要时切换。
+**评估结论 (2026-05-07):**
+
+| 需求 | Unity Behavior | C# Behavior Tree |
+| --- | --- | --- |
+| 随机巡逻点 | 内置 Patrol 节点功能有限 | `Random.insideUnitSphere` 任意定制 |
+| 视线角度检测 | 条件表达式难以实现 | `Vector3.Angle` 一行 |
+| Raycast 遮挡 | 图里无法实现 | 三行 `Physics.Raycast` |
+| Inspector 调参 | 需要 Blackboard 手动绑定 | `[SerializeField]` 自动暴露 |
+| 版本控制 | 二进制 .asset 文件，diff 不可读 | 纯文本 .cs，Git 友好 |
+
+**最终方案:** C# Behavior Tree（6 个节点类 <100 行，`EnemyBT.cs` ~160 行）。
+Behavior Graph 适合简单触发式逻辑（"进入区域→播放动画"），不适合需要每帧精确计算的战斗 AI。
 
 ---
 

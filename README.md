@@ -3,7 +3,7 @@
 [![Unity](https://img.shields.io/badge/Unity-6000.4.5f1-000000?logo=unity)](https://unity.com/releases/editor/whats-new/6000.4.5)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![AI](https://img.shields.io/badge/AI-FSM%20|%20Behavior%20|%20ML--Agents%20|%20Sentis-ff6a00)](docs/planning/learning-roadmap.md)
-[![Status](https://img.shields.io/badge/status-M1%20complete%20%7C%20M2%20ready-brightgreen)](docs/status/PROGRESS.md)
+[![Status](https://img.shields.io/badge/status-M2%20complete%20%7C%20M3%20ready-brightgreen)](docs/status/PROGRESS.md)
 
 [**中文版本**](README.zh-CN.md)
 
@@ -48,7 +48,7 @@ Every milestone produces runnable, verifiable, and documented output. The projec
 
 ## Current Status
 
-Both M0 and M1 are **complete**. M2 (Behavior Tree & Swarm AI) is ready to begin.
+M0, M1, and M2 are **complete**. M3 (ML-Agents Reinforcement Learning) is ready to begin.
 
 ### M0 — Project Foundation ✅
 | Item | Status |
@@ -58,15 +58,20 @@ Both M0 and M1 are **complete**. M2 (Behavior Tree & Swarm AI) is ready to begin
 | Base Scene + Smoke Test | ✅ |
 | Git LFS + CI + Docs | ✅ |
 
-### M1 — Traditional Game AI ✅
+### M1 — Traditional AI (FSM) ✅
 | Feature | Status |
 | --- | --- |
-| Patrol (random NavMesh waypoints) | ✅ |
-| Chase (120° FOV, sight range 15m) | ✅ |
-| Attack (2m range, 1.5s cooldown) | ✅ |
-| Death (3 hits, disable movement) | ✅ |
-| Raycast occlusion (obstacle blocking) | ✅ |
-| Scene archived | ✅ `Demo1_FSM.unity` |
+| Patrol / Chase / Attack / Death | ✅ |
+| Raycast occlusion | ✅ |
+| Scene | `Demo1_FSM.unity` |
+
+### M2 — Behavior Tree + Swarm ✅
+| Feature | Status |
+| --- | --- |
+| C# Behavior Tree (Selector/Sequence) | ✅ |
+| Swarm separation (Boids 3 rules) | ✅ |
+| Unity Behavior evaluated → C# BT chosen | ✅ |
+| Scenes | `Demo2_Behavior.unity` / `Demo2_Swarm.unity` |
 
 > Full status: [PROGRESS.md](docs/status/PROGRESS.md) | [TODO.md](docs/status/TODO.md)
 
@@ -78,21 +83,26 @@ Both M0 and M1 are **complete**. M2 (Behavior Tree & Swarm AI) is ready to begin
 | --- | --- | --- |
 | **M0** Project Foundation | ✅ Complete | Unity 6 skeleton, packages, CI, docs system |
 | **M1** Traditional Game AI | ✅ Complete | FSM + NavMesh patrol/chase/attack, Demo1_FSM scene |
-| **M2** Behavior Tree & Swarm | 🟡 In Progress | Unity Behavior graph, squad coordination |
-| **M3** ML-Agents Training | ⏳ Pending | PPO training, TensorBoard, ONNX model |
+| **M2** Behavior Tree & Swarm | ✅ Complete | C# BT + Boids separation, Demo2 scenes |
+| **M3** ML-Agents Training | 🟡 In Progress | PPO training, TensorBoard, ONNX model |
 | **M4** Sentis Inference | ⏳ Pending | ONNX import, Burst CPU runtime inference |
 | **M5** Final Delivery | ⏳ Pending | Full demo, CI green, video walkthrough |
 
 ## Next Steps / 下一步
 
-### Option A: Unity Behavior (recommended first)
-Replace the FSM with Unity Behavior graph — Unity 6's native visual behavior system. Re-implement the same Patrol→Chase→Attack→Death logic using Behavior nodes.
+### M3 — ML-Agents Reinforcement Learning
 
-### Option B: Swarm AI (add enemies)
-Add 3-5 enemies with separation/alignment/cohesion (Boids algorithm) or leader-follower formation. Keep the FSM approach but make multiple enemies coordinate.
+Build a training environment where an agent learns combat behavior through PPO (Proximal Policy Optimization).
 
-### Option C: Both together
-Convert single enemy to Behavior graph first, then clone and add swarm coordination.
+| Task | Description |
+| --- | --- |
+| Python Setup | Install `mlagents` Python package for training |
+| Training Scene | Create `TrainEnv.unity` with Agent + environment |
+| Custom Agent | Define observations (player position, distance), actions (move, attack), rewards (hit=+1, miss=-0.1) |
+| PPO Training | Write YAML config, run `mlagents-learn`, monitor TensorBoard |
+| ONNX Export | Export trained model, verify inference in Unity |
+
+> Prerequisite: Python 3.10+ with `mlagents` package installed.
 
 > Detailed plan: [M0 Task Plan](docs/planning/milestone-m0-plan.md) | [Architecture Decisions](docs/planning/architecture-decisions.md)
 

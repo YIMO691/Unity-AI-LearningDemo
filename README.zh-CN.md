@@ -3,7 +3,7 @@
 [![Unity](https://img.shields.io/badge/Unity-6000.4.5f1-000000?logo=unity)](https://unity.com/releases/editor/whats-new/6000.4.5)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![AI](https://img.shields.io/badge/AI-FSM%20|%20Behavior%20|%20ML--Agents%20|%20Sentis-ff6a00)](docs/planning/learning-roadmap.md)
-[![Status](https://img.shields.io/badge/status-M1%20%E5%AE%8C%E6%88%90%20%7C%20M2%20%E5%B0%B1%E7%BB%AA-brightgreen)](docs/status/PROGRESS.md)
+[![Status](https://img.shields.io/badge/status-M2%20%E5%AE%8C%E6%88%90%20%7C%20M3%20%E5%B0%B1%E7%BB%AA-brightgreen)](docs/status/PROGRESS.md)
 
 [**English Version**](README.md)
 
@@ -48,7 +48,7 @@
 
 ## 当前状态
 
-M0 和 M1 均**已完成**。M2（行为树与群体 AI）准备开始。
+M0、M1、M2 均**已完成**。M3（ML-Agents 强化学习训练）准备开始。
 
 ### M0 — 工程基础 ✅
 | 项目 | 状态 |
@@ -58,15 +58,20 @@ M0 和 M1 均**已完成**。M2（行为树与群体 AI）准备开始。
 | 基础场景 + 冒烟测试 | ✅ |
 | Git LFS + CI + 文档 | ✅ |
 
-### M1 — 传统游戏 AI ✅
+### M1 — 传统 AI（FSM）✅
 | 功能 | 状态 |
 | --- | --- |
-| 巡逻（随机 NavMesh 巡逻点） | ✅ |
-| 追逐（120° 视野，15m 感知距离） | ✅ |
-| 攻击（2m 范围，1.5s 冷却） | ✅ |
-| 死亡（3 次攻击击杀，停止移动） | ✅ |
-| 遮挡检测（障碍物阻挡视线） | ✅ |
-| 场景归档 | ✅ `Demo1_FSM.unity` |
+| Patrol / Chase / Attack / Death | ✅ |
+| Raycast 遮挡检测 | ✅ |
+| 场景 | `Demo1_FSM.unity` |
+
+### M2 — 行为树 + 群体 ✅
+| 功能 | 状态 |
+| --- | --- |
+| C# 行为树（Selector/Sequence） | ✅ |
+| 群体分离（Boids 三规则） | ✅ |
+| Unity Behavior 评估 → C# BT 选定 | ✅ |
+| 场景 | `Demo2_Behavior.unity` / `Demo2_Swarm.unity` |
 
 > 完整状态：[PROGRESS.md](docs/status/PROGRESS.md) | [TODO.md](docs/status/TODO.md)
 
@@ -78,8 +83,8 @@ M0 和 M1 均**已完成**。M2（行为树与群体 AI）准备开始。
 | --- | --- | --- |
 | **M0** 工程基础 | ✅ 已完成 | Unity 6 工程骨架、包安装、CI、文档体系 |
 | **M1** 传统游戏 AI | ✅ 已完成 | FSM + NavMesh 巡逻/追踪/攻击，Demo1_FSM 场景 |
-| **M2** 行为树与群体 | 🟡 进行中 | Unity Behavior 行为图、小队协作 |
-| **M3** 强化学习训练 | ⏳ 待启动 | PPO 训练、TensorBoard、ONNX 模型 |
+| **M2** 行为树与群体 | ✅ 已完成 | C# BT + Boids 分离，Demo2 双场景 |
+| **M3** 强化学习训练 | 🟡 进行中 | PPO 训练、TensorBoard、ONNX 模型 |
 | **M4** 推理集成 | ⏳ 待启动 | ONNX 导入、Burst CPU 运行时推理 |
 | **M5** 最终交付 | ⏳ 待启动 | 完整 Demo、CI 通过、演示录屏 |
 
@@ -87,14 +92,19 @@ M0 和 M1 均**已完成**。M2（行为树与群体 AI）准备开始。
 
 ## 下一步
 
-### A）Unity Behavior（建议优先）
-用 Unity Behavior 行为图替代 FSM，用可视化节点重写 巡逻→追逐→攻击→死亡 流程。
+### M3 — ML-Agents 强化学习训练
 
-### B）群体 AI
-复制 3-5 个敌人，实现 Boids 分离/对齐/凝聚或队长-队员队形。
+搭建训练环境，让智能体通过 PPO 算法自主学习战斗行为。
 
-### C）两者同时推进
-先做 Behavior 单敌决策，再扩展多敌人协作。
+| 任务 | 说明 |
+| --- | --- |
+| Python 环境 | 安装 `mlagents` Python 包 |
+| 训练场景 | 创建 `TrainEnv.unity`（Agent + 环境） |
+| 自定义 Agent | 定义观察空间（玩家位置、距离）、动作空间（移动、攻击）、奖励函数（命中+1、失误-0.1） |
+| PPO 训练 | 编写 YAML 配置，运行 `mlagents-learn`，TensorBoard 监控 |
+| ONNX 导出 | 导出训练模型，Unity 中验证推理 |
+
+> 前置：Python 3.10+，`mlagents` 包已安装。
 
 > 详细计划：[M0 任务清单](docs/planning/milestone-m0-plan.md) | [架构决策记录](docs/planning/architecture-decisions.md)
 

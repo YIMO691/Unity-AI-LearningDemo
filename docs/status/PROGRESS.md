@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-**M0 + M1 completed (2026-05-07) / M2 in progress.**
+**M0 + M1 + M2 completed (2026-05-07) / M3 in progress.**
 
 ## M0 DoD — All Checked
 
@@ -45,6 +45,12 @@
 - M1: FSM states verified: Patrol, Chase (120° FOV), Attack (2m), Death (3 hits).
 - M1: Raycast occlusion verified — obstacles block line of sight.
 - M1: Demo1_FSM scene archived to `Assets/_Project/Scenes/Demo1_FSM.unity`.
+- M2: Implemented C# Behavior Tree (BTNode, BTSelector, BTSequence, BTCondition, BTAction).
+- M2: Created `EnemyBT.cs` with priority-based Selector replacing M1's switch FSM.
+- M2: Evaluated Unity Behavior — unsuitable for complex combat AI (no raycast, weak conditions).
+- M2: Implemented Boids swarm AI (SeparationForce.cs — separation + alignment + cohesion).
+- M2: Demo2_Behavior scene (1 BT enemy) and Demo2_Swarm scene (5 enemies, no overlap).
+- M2: AI scripts organized into FSM/ BehaviorTree/ Swarm/ subdirectories.
 
 ## Command Reference
 
