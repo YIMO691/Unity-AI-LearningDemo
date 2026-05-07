@@ -1,0 +1,11 @@
+# CODEOWNERS — 文件所有权与审查责任
+
+# 全局默认
+* @{GITHUB_USERNAME}
+
+# 文档变更
+docs/ @{GITHUB_USERNAME}
+*.md @{GITHUB_USERNAME}
+
+# CI / 工作流变更（需仔细检查）
+.github/workflows/ @{GITHUB_USERNAME}

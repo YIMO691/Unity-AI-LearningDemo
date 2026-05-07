@@ -11,11 +11,11 @@
 - Node.js：已安装，版本 `v25.8.1`。
 - npm：可通过 `npm.cmd` 使用，版本 `11.11.1`。
 - WinGet：已安装，版本 `v1.28.240`。
-- 原始手册：已从 `F:\EdgeDownload\deep-research-report (4).md` 归档到 `docs/manual.md`。
+- 原始手册：已从 `F:\EdgeDownload\deep-research-report (4).md` 归档到 `docs/reference/manual.md`。
 
 ## 需要处理
 
-- GitHub CLI `gh`：未安装。见 `docs/github-setup.md`。
+- GitHub CLI `gh`：未安装。见 `docs/workflows/github-setup.md`。
 - Unity 6：未在 `C:\Program Files\Unity\Hub\Editor` 检测到。当前仅检测到 Unity 2019、2020、2022 编辑器。请用 Unity Hub 安装 Unity 6。
 - PowerShell 执行策略阻止 `npm.ps1`：如需使用 npm，优先运行 `npm.cmd`。
 
