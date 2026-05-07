@@ -92,6 +92,10 @@ __pycache__/
 .pytest_cache/
 .ipynb_checkpoints/
 
+# Unity generated at repo root (accidental open)
+Temp/
+ProjectSettings/
+
 # Large generated artifacts, commit intentionally with Git LFS if needed
 *.mp4
 *.mov
