@@ -14,8 +14,32 @@ Desktop.ini
 .env
 .env.*
 !.env.example
+*.secret
+*.key
 CLAUDE.local.md
 .claude/settings.local.json
+
+# OpenClaw local secrets
+.openclaw/local/
+.openclaw/*.local.json
+.openclaw/**/secret*
+.openclaw/**/token*
+.openclaw/cc-target.json
+.openclaw/cc-sessions.json
+.openclaw/workspace-state.json
+
+# OpenClaw local agent workspace notes
+.openclaw/HEARTBEAT.md
+.openclaw/IDENTITY.md
+.openclaw/SOUL.md
+.openclaw/TOOLS.md
+.openclaw/USER.md
+
+# Local repository cleanup backups
+.repo-backups/
+
+# Legacy local Unity project copy. Canonical project path is UnityProject/.
+AI/
 
 # Unity generated directories
 UnityProject/[Ll]ibrary/
@@ -33,6 +57,7 @@ UnityProject/[Ss]ysinfo.txt
 UnityProject/*.csproj
 UnityProject/*.sln
 UnityProject/*.sln.DotSettings.user
+UnityProject/.vsconfig
 UnityProject/*.unityproj
 UnityProject/*.pidb
 UnityProject/*.svd
@@ -44,6 +69,13 @@ UnityProject/*.VC.db
 # Unity cache / crash data
 UnityProject/[Cc]rash[Rr]eports/
 UnityProject/[Pp]rofiling/
+
+# Root deployment logs
+Logs/*.log
+Logs/*.xml
+!Logs/.gitkeep
+Logs/ClaudeRelay/*
+!Logs/ClaudeRelay/.gitkeep
 
 # ML-Agents / training outputs
 UnityProject/results/
@@ -67,4 +99,3 @@ __pycache__/
 *.zip
 *.7z
 *.rar
-
