@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-**M0 completed (2026-05-07) / M1 in progress.**
+**M0 + M1 completed (2026-05-07) / M2 in progress.**
 
 ## M0 DoD — All Checked
 
@@ -39,6 +39,12 @@
 - `.repo-backups` deleted after user confirmation.
 - Markdown docs classified into `docs/planning`, `docs/workflows`, `docs/status`, `docs/environment`, `docs/templates`, and `docs/reference`.
 - Added `docs/README.md` as the documentation index and duplicate/usefulness audit.
+- M1: Created `EnemyState.cs` (FSM enum) and `EnemyFSM.cs` (MonoBehaviour + NavMeshAgent state machine).
+- M1: Created `SimplePlayerController.cs` (WASD + mouse look) and `PlayerAttack.cs` (Space key melee).
+- M1: NavMesh baked on Ground Plane via NavMesh Surface.
+- M1: FSM states verified: Patrol, Chase (120° FOV), Attack (2m), Death (3 hits).
+- M1: Raycast occlusion verified — obstacles block line of sight.
+- M1: Demo1_FSM scene archived to `Assets/_Project/Scenes/Demo1_FSM.unity`.
 
 ## Command Reference
 

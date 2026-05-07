@@ -3,7 +3,7 @@
 [![Unity](https://img.shields.io/badge/Unity-6000.4.5f1-000000?logo=unity)](https://unity.com/releases/editor/whats-new/6000.4.5)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![AI](https://img.shields.io/badge/AI-FSM%20|%20Behavior%20|%20ML--Agents%20|%20Sentis-ff6a00)](docs/planning/learning-roadmap.md)
-[![Status](https://img.shields.io/badge/status-M0%20complete%20%7C%20M1%20ready-brightgreen)](docs/status/PROGRESS.md)
+[![Status](https://img.shields.io/badge/status-M1%20complete%20%7C%20M2%20ready-brightgreen)](docs/status/PROGRESS.md)
 
 [**中文版本**](README.zh-CN.md)
 
@@ -48,17 +48,25 @@ Every milestone produces runnable, verifiable, and documented output. The projec
 
 ## Current Status
 
-Milestone 0 (Project Foundation) is **complete**. Unity 6 URP project created, all core packages installed, directory structure established, SmokeTest passing, and code pushed to GitHub. Milestone 1 (FSM + NavMesh enemy AI prototype) is ready to begin.
+Both M0 and M1 are **complete**. M2 (Behavior Tree & Swarm AI) is ready to begin.
 
+### M0 — Project Foundation ✅
 | Item | Status |
 | --- | --- |
-| Unity 6 Project | ✅ Created |
-| Package Installation | ✅ AI Navigation 2.0.12, Behavior 1.0.15, ML-Agents 4.0.3, Test Framework 1.6.0 |
-| Base Scene | ✅ Main.unity (Ground + Lighting + Camera) |
-| Smoke Test | ✅ 1/1 passing |
-| Git LFS | ✅ Initialized |
-| CI Pipeline | ✅ GitHub Actions configured |
-| Documentation | ✅ 25+ docs across 6 categories |
+| Unity 6 URP Project | ✅ |
+| Package Installation | ✅ 5 core packages |
+| Base Scene + Smoke Test | ✅ |
+| Git LFS + CI + Docs | ✅ |
+
+### M1 — Traditional Game AI ✅
+| Feature | Status |
+| --- | --- |
+| Patrol (random NavMesh waypoints) | ✅ |
+| Chase (120° FOV, sight range 15m) | ✅ |
+| Attack (2m range, 1.5s cooldown) | ✅ |
+| Death (3 hits, disable movement) | ✅ |
+| Raycast occlusion (obstacle blocking) | ✅ |
+| Scene archived | ✅ `Demo1_FSM.unity` |
 
 > Full status: [PROGRESS.md](docs/status/PROGRESS.md) | [TODO.md](docs/status/TODO.md)
 
@@ -69,11 +77,22 @@ Milestone 0 (Project Foundation) is **complete**. Unity 6 URP project created, a
 | Milestone | Status | Deliverables |
 | --- | --- | --- |
 | **M0** Project Foundation | ✅ Complete | Unity 6 skeleton, packages, CI, docs system |
-| **M1** Traditional Game AI | 🟡 In Progress | FSM + NavMesh patrol/chase/attack |
-| **M2** Behavior Tree & Swarm | ⏳ Pending | Unity Behavior graph, squad coordination |
+| **M1** Traditional Game AI | ✅ Complete | FSM + NavMesh patrol/chase/attack, Demo1_FSM scene |
+| **M2** Behavior Tree & Swarm | 🟡 In Progress | Unity Behavior graph, squad coordination |
 | **M3** ML-Agents Training | ⏳ Pending | PPO training, TensorBoard, ONNX model |
 | **M4** Sentis Inference | ⏳ Pending | ONNX import, Burst CPU runtime inference |
 | **M5** Final Delivery | ⏳ Pending | Full demo, CI green, video walkthrough |
+
+## Next Steps / 下一步
+
+### Option A: Unity Behavior (recommended first)
+Replace the FSM with Unity Behavior graph — Unity 6's native visual behavior system. Re-implement the same Patrol→Chase→Attack→Death logic using Behavior nodes.
+
+### Option B: Swarm AI (add enemies)
+Add 3-5 enemies with separation/alignment/cohesion (Boids algorithm) or leader-follower formation. Keep the FSM approach but make multiple enemies coordinate.
+
+### Option C: Both together
+Convert single enemy to Behavior graph first, then clone and add swarm coordination.
 
 > Detailed plan: [M0 Task Plan](docs/planning/milestone-m0-plan.md) | [Architecture Decisions](docs/planning/architecture-decisions.md)
 

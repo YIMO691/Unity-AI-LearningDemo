@@ -3,35 +3,30 @@
 ## 阶段状态
 
 - **Milestone 0**（工程基础）：✅ 已完成（2026-05-07）
-- **Milestone 1**（传统游戏 AI）：🟡 进行中
-- **Milestone 2**（群体 AI / Behavior）：⏳ 待启动
+- **Milestone 1**（传统游戏 AI）：✅ 已完成（2026-05-07）
+- **Milestone 2**（行为树 / 群体 AI）：🟡 进行中
 - **Milestone 3**（ML-Agents）：⏳ 待启动
 - **Milestone 4**（Sentis 推理）：⏳ 待启动
 
 ---
 
-## 当前任务（M1 — FSM 敌人 AI 原型）
+## 当前任务（M2 — 行为树 / 群体 AI）
 
-### 1. 创建 FSM 枚举与核心脚本
+### 选项
 
-**验收标准：**
-- [ ] `Assets/_Project/Scripts/AI/EnemyState.cs` — 定义 `Patrol / Chase / Attack / Dead` 枚举
-- [ ] `Assets/_Project/Scripts/AI/EnemyFSM.cs` — 实现状态切换逻辑
-- [ ] 关键参数暴露到 Inspector：视野距离、攻击范围、巡逻速度、追踪速度
+**A) Unity Behavior 行为图**
+- [ ] 安装并打开 Unity Behavior 包
+- [ ] 创建 Behavior Graph 替代 FSM
+- [ ] 用可视化节点实现 Patrol→Chase→Attack→Death
+- [ ] 验证行为与 M1 功能等价
 
-### 2. 配置 NavMesh
+**B) 群体 AI**
+- [ ] 复制 3-5 个 Enemy 到场景
+- [ ] 实现 Boids 分离/对齐/凝聚
+- [ ] 验证多敌人不重叠、有分工
 
-**验收标准：**
-- [ ] Scene 中 Ground 标记 Navigation Static
-- [ ] 添加 NavMesh Surface 组件并 Bake
-- [ ] Scene 视图显示蓝色 NavMesh 行走区域
-
-### 3. 搭建场景测试
-
-**验收标准：**
-- [ ] 场景中有 Player Cube + Enemy Capsule
-- [ ] Enemy 挂载 EnemyFSM + NavMeshAgent
-- [ ] Play 模式下：Player 远离时 Enemy 巡逻 → Player 靠近时追逐 → 进入范围后攻击
+**C) 两者同时推进**
+- [ ] 先 A 后 B
 
 ---
 

@@ -3,7 +3,7 @@
 [![Unity](https://img.shields.io/badge/Unity-6000.4.5f1-000000?logo=unity)](https://unity.com/releases/editor/whats-new/6000.4.5)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![AI](https://img.shields.io/badge/AI-FSM%20|%20Behavior%20|%20ML--Agents%20|%20Sentis-ff6a00)](docs/planning/learning-roadmap.md)
-[![Status](https://img.shields.io/badge/status-M0%20%E5%AE%8C%E6%88%90%20%7C%20M1%20%E5%B0%B1%E7%BB%AA-brightgreen)](docs/status/PROGRESS.md)
+[![Status](https://img.shields.io/badge/status-M1%20%E5%AE%8C%E6%88%90%20%7C%20M2%20%E5%B0%B1%E7%BB%AA-brightgreen)](docs/status/PROGRESS.md)
 
 [**English Version**](README.md)
 
@@ -48,17 +48,25 @@
 
 ## 当前状态
 
-里程碑 0（工程基础）**已完成**。Unity 6 URP 工程已创建，全部核心包已安装，目录结构已建立，SmokeTest 通过，代码已推送 GitHub。里程碑 1（FSM + NavMesh 敌人 AI 原型）准备开始。
+M0 和 M1 均**已完成**。M2（行为树与群体 AI）准备开始。
 
+### M0 — 工程基础 ✅
 | 项目 | 状态 |
 | --- | --- |
-| Unity 6 工程 | ✅ 已创建 |
-| 包安装 | ✅ AI Navigation 2.0.12, Behavior 1.0.15, ML-Agents 4.0.3, Test Framework 1.6.0 |
-| 基础场景 | ✅ Main.unity（地面 + 光照 + 摄像机） |
-| 冒烟测试 | ✅ 1/1 通过 |
-| Git LFS | ✅ 已初始化 |
-| CI 流水线 | ✅ GitHub Actions 已配置 |
-| 文档体系 | ✅ 6 类 25+ 份文档 |
+| Unity 6 URP 工程 | ✅ |
+| 包安装 | ✅ 5 个核心包 |
+| 基础场景 + 冒烟测试 | ✅ |
+| Git LFS + CI + 文档 | ✅ |
+
+### M1 — 传统游戏 AI ✅
+| 功能 | 状态 |
+| --- | --- |
+| 巡逻（随机 NavMesh 巡逻点） | ✅ |
+| 追逐（120° 视野，15m 感知距离） | ✅ |
+| 攻击（2m 范围，1.5s 冷却） | ✅ |
+| 死亡（3 次攻击击杀，停止移动） | ✅ |
+| 遮挡检测（障碍物阻挡视线） | ✅ |
+| 场景归档 | ✅ `Demo1_FSM.unity` |
 
 > 完整状态：[PROGRESS.md](docs/status/PROGRESS.md) | [TODO.md](docs/status/TODO.md)
 
@@ -69,11 +77,24 @@
 | 里程碑 | 状态 | 交付物 |
 | --- | --- | --- |
 | **M0** 工程基础 | ✅ 已完成 | Unity 6 工程骨架、包安装、CI、文档体系 |
-| **M1** 传统游戏 AI | 🟡 进行中 | FSM + NavMesh 巡逻/追踪/攻击 |
-| **M2** 行为树与群体 | ⏳ 待启动 | Unity Behavior 行为图、小队协作 |
+| **M1** 传统游戏 AI | ✅ 已完成 | FSM + NavMesh 巡逻/追踪/攻击，Demo1_FSM 场景 |
+| **M2** 行为树与群体 | 🟡 进行中 | Unity Behavior 行为图、小队协作 |
 | **M3** 强化学习训练 | ⏳ 待启动 | PPO 训练、TensorBoard、ONNX 模型 |
 | **M4** 推理集成 | ⏳ 待启动 | ONNX 导入、Burst CPU 运行时推理 |
 | **M5** 最终交付 | ⏳ 待启动 | 完整 Demo、CI 通过、演示录屏 |
+
+---
+
+## 下一步
+
+### A）Unity Behavior（建议优先）
+用 Unity Behavior 行为图替代 FSM，用可视化节点重写 巡逻→追逐→攻击→死亡 流程。
+
+### B）群体 AI
+复制 3-5 个敌人，实现 Boids 分离/对齐/凝聚或队长-队员队形。
+
+### C）两者同时推进
+先做 Behavior 单敌决策，再扩展多敌人协作。
 
 > 详细计划：[M0 任务清单](docs/planning/milestone-m0-plan.md) | [架构决策记录](docs/planning/architecture-decisions.md)
 
