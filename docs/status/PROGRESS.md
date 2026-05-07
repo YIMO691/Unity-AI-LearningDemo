@@ -2,7 +2,16 @@
 
 ## Current Phase
 
-Phase 0 completed / Phase 1 ready.
+**M0 completed (2026-05-07) / M1 in progress.**
+
+## M0 DoD — All Checked
+
+- [x] Unity 6 编辑器可打开 `UnityProject/` 且无错误
+- [x] 基础场景 Main.unity Play 运行正常
+- [x] 所有计划包已安装且版本已记录到 `docs/planning/package-manifest.md`
+- [x] SmokeTest.cs 创建，Test Runner 1/1 绿色通过
+- [x] Git LFS 已初始化，`.gitattributes` 生效
+- [x] 代码已推送到 GitHub，8 批标准化提交
 
 ## Completed
 
@@ -17,7 +26,7 @@ Phase 0 completed / Phase 1 ready.
 - `unity6ai` workspace confirmed as `F:\Unity6_AI`.
 - Feishu private chat bot can read and summarize `tools/mobile-status.ps1` project status.
 - `tools/mobile-status.ps1` fixed to read only project-local `Logs` files, not the global Unity Editor.log.
-- GitHub remote configured as `https://github.com/YIMO691/Unity_AI`.
+- GitHub remote configured as `https://github.com/YIMO691/Unity-AI-LearningDemo`.
 - Canonical Unity project path prepared as `F:\Unity6_AI\UnityProject`.
 - Unity source folders copied from the legacy `AI` project into `UnityProject`.
 - Standard `_Project` folder skeleton created under `UnityProject/Assets/_Project`.

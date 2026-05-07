@@ -1,23 +1,24 @@
 # Unity 包清单
 
-> 在 M0 Task 0.5 完成后填写此文件。记录精确包名和版本号，确保环境可复现。
+> M0 Task 0.5 — 记录实际安装的包名和版本号。
 
-## 核心包
+## 核心 AI 包
 
-| 包名（com.unity.xxx） | 版本 | 用途 | 安装日期 |
-| --- | --- | --- | --- |
-| `com.unity.ai.navigation` | `2.0.12` | NavMesh 运行时与 Surface 组件 | 2026-05-06 |
-| `com.unity.behavior` | 未安装 | Unity Behavior 可视化行为图 | 待确认 |
-| `com.unity.ml-agents` | 未安装 | 强化学习训练框架 | 待确认 |
-| `com.unity.sentis` | 未安装 | ONNX 模型推理引擎 | 待确认 |
-| `com.unity.test-framework` | `1.6.0` | EditMode/PlayMode 测试 | 2026-05-06 |
-
-## 间接依赖（自动安装）
-
-记录安装上述包时 Unity 自动引入的关键依赖及其版本：
-
-| 包名 | 版本 | 来源 |
+| 包名 | 版本 | 用途 |
 | --- | --- | --- |
-| `com.unity.inputsystem` | `1.19.0` | UnityProject/Packages/manifest.json |
-| `com.unity.render-pipelines.universal` | `17.4.0` | UnityProject/Packages/manifest.json |
-| `com.unity.visualscripting` | `1.9.11` | UnityProject/Packages/manifest.json |
+| `com.unity.ai.navigation` | 2.0.12 | NavMesh 运行时与 Surface 组件 |
+| `com.unity.behavior` | 1.0.15 | Unity Behavior 可视化行为图 |
+| `com.unity.ml-agents` | 4.0.3 | 强化学习训练框架 |
+| `com.unity.sentis` | — | ONNX 模型推理（M4 前安装） |
+| `com.unity.test-framework` | 1.6.0 | EditMode/PlayMode 测试 |
+
+## 基础包
+
+| 包名 | 版本 | 用途 |
+| --- | --- | --- |
+| `com.unity.inputsystem` | 1.19.0 | 新输入系统 |
+| `com.unity.render-pipelines.universal` | 17.4.0 | URP 渲染管线 |
+| `com.unity.ugui` | 2.0.0 | Unity UI |
+| `com.unity.collab-proxy` | 2.12.4 | 版本控制集成 |
+| `com.unity.timeline` | 1.8.12 | 时间线动画 |
+| `com.unity.visualscripting` | 1.9.11 | 可视化脚本 |

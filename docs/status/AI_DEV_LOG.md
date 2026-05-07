@@ -25,7 +25,7 @@ Next: Resolve Unity PackageCache issue, then begin Phase 1 Unity AI foundation w
 ```text
 Date: 2026-05-06
 Tool: Codex
-Task: Rationalize Unity6_AI repository structure for GitHub repo https://github.com/YIMO691/Unity_AI.
+Task: Rationalize Unity6_AI repository structure for GitHub repo https://github.com/YIMO691/Unity-AI-LearningDemo.
 Result: Git origin configured; canonical Unity project folder prepared as F:\Unity6_AI\UnityProject; Assets, Packages, and ProjectSettings copied from legacy AI project; standard Assets/_Project folder skeleton created; legacy AI folder and .repo-backups ignored by Git.
 Blocker: Windows denied direct rename of F:\Unity6_AI\AI to UnityProject, so AI remains as a local ignored legacy copy.
 Next: Open F:\Unity6_AI\UnityProject in Unity Hub, let Unity regenerate Library/cache, then verify Console before starting Phase 1 FSM work.

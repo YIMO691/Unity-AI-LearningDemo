@@ -94,7 +94,7 @@
 ### 克隆与初始化
 
 ```powershell
-git clone https://github.com/YIMO691/Unity_AI.git
+git clone https://github.com/YIMO691/Unity-AI-LearningDemo.git
 cd Unity_AI
 git lfs install
 ```

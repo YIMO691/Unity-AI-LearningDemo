@@ -1,0 +1,22 @@
+{
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "domain": "feishu",
+      "connectionMode": "websocket",
+      "dmPolicy": "pairing",
+      "groupPolicy": "allowlist",
+      "requireMention": true,
+      "typingIndicator": false,
+      "resolveSenderNames": false,
+      "accounts": {
+        "main": {
+          "appId": "cli_xxx_REPLACE_IN_LOCAL_CONFIG_ONLY",
+          "appSecret": "REPLACE_IN_LOCAL_CONFIG_ONLY",
+          "name": "Unity6_AI Progress Bot"
+        }
+      }
+    }
+  }
+}
+

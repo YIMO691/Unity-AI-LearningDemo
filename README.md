@@ -94,7 +94,7 @@ Milestone 0 (Project Foundation) is **complete**. Unity 6 URP project created, a
 ### Clone & Setup
 
 ```powershell
-git clone https://github.com/YIMO691/Unity_AI.git
+git clone https://github.com/YIMO691/Unity-AI-LearningDemo.git
 cd Unity_AI
 git lfs install
 ```
