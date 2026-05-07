@@ -14,7 +14,7 @@
 
 - 使用中文和用户沟通，代码标识符保持英文。
 - 每次只推进一个小里程碑，先写清验收标准，再实现。
-- 先读 `docs/manual.md`、`docs/project-brief.md`、`docs/learning-roadmap.md`。
+- 先读 `docs/reference/manual.md`、`docs/planning/project-brief.md`、`docs/planning/learning-roadmap.md`、`docs/planning/architecture-decisions.md`、`docs/planning/milestone-m0-plan.md`。
 - Unity 工程根目录约定为 `UnityProject/`。
 - 不提交 API Key、Unity Library、训练结果、缓存、用户本地设置。
 - 生成代码后必须给出 Unity 中如何验证的步骤。
@@ -26,4 +26,3 @@
 - C# 脚本放在 `UnityProject/Assets/_Project/Scripts/` 下。
 - 测试放在 `UnityProject/Assets/_Project/Tests/` 下。
 - AI 训练输出、ONNX 模型、大型资产不要直接提交；需要长期保存时先配置 Git LFS。
-
