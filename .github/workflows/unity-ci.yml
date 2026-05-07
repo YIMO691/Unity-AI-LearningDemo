@@ -1,0 +1,68 @@
+name: Unity CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "UnityProject/Assets/**"
+      - "UnityProject/Packages/**"
+      - "UnityProject/ProjectSettings/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "UnityProject/Assets/**"
+      - "UnityProject/Packages/**"
+      - "UnityProject/ProjectSettings/**"
+
+jobs:
+  build-and-test:
+    name: Build & Test (Unity ${{ matrix.unityVersion }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        unityVersion:
+          - "6000.4.5f1"
+
+    steps:
+      - name: Checkout (with LFS)
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Cache Unity Library
+        uses: actions/cache@v4
+        with:
+          path: UnityProject/Library
+          key: Library-${{ runner.os }}-${{ matrix.unityVersion }}-${{ hashFiles('UnityProject/Packages/manifest.json') }}
+          restore-keys: |
+            Library-${{ runner.os }}-${{ matrix.unityVersion }}-
+
+      - name: Build project (compile check)
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: UnityProject
+          targetPlatform: StandaloneWindows64
+          allowDirtyBuild: true
+
+      - name: Run EditMode tests
+        uses: game-ci/unity-test-runner@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: UnityProject
+          testMode: EditMode
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: TestResults-${{ matrix.unityVersion }}
+          path: |
+            UnityProject/TestResults*.xml
+            UnityProject/artifacts/
