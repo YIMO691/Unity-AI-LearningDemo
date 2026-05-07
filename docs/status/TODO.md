@@ -4,29 +4,24 @@
 
 - **Milestone 0**（工程基础）：✅ 已完成（2026-05-07）
 - **Milestone 1**（传统游戏 AI）：✅ 已完成（2026-05-07）
-- **Milestone 2**（行为树 / 群体 AI）：🟡 进行中
+- **Milestone 2**（行为树 / 群体 AI）：✅ 已完成（2026-05-07）
 - **Milestone 3**（ML-Agents）：⏳ 待启动
 - **Milestone 4**（Sentis 推理）：⏳ 待启动
 
 ---
 
-## 当前任务（M2 — 行为树 / 群体 AI）
+## 当前任务（M3 — ML-Agents 强化学习训练）
 
-### 选项
+### 前置准备
+- [ ] 确认 `com.unity.ml-agents` 4.0.3 已安装
+- [ ] 搭建 Python 训练环境（mlagents Python 包）
+- [ ] 创建训练配置文件（YAML）
 
-**A) Unity Behavior 行为图**
-- [ ] 安装并打开 Unity Behavior 包
-- [ ] 创建 Behavior Graph 替代 FSM
-- [ ] 用可视化节点实现 Patrol→Chase→Attack→Death
-- [ ] 验证行为与 M1 功能等价
-
-**B) 群体 AI**
-- [ ] 复制 3-5 个 Enemy 到场景
-- [ ] 实现 Boids 分离/对齐/凝聚
-- [ ] 验证多敌人不重叠、有分工
-
-**C) 两者同时推进**
-- [ ] 先 A 后 B
+### 训练任务
+- [ ] 设计训练场景（TrainEnv.unity）
+- [ ] 实现自定义 Agent（观察空间 + 动作空间 + 奖励）
+- [ ] 本地训练并观察 TensorBoard 曲线
+- [ ] 导出 ONNX 模型
 
 ---
 
