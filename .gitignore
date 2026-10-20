@@ -103,3 +103,5 @@ ProjectSettings/
 *.zip
 *.7z
 *.rar
+Logs/
+.vs/
